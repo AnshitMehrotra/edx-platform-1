@@ -13,7 +13,7 @@ from rest_framework import permissions
 from rest_framework.views import APIView
 import social.apps.django_app.utils as social_utils
 
-from oauth_exchange.forms import AccessTokenExchangeForm
+from auth_exchange.forms import AccessTokenExchangeForm
 from openedx.core.lib.api.authentication import OAuth2AuthenticationAllowInactiveUser
 
 
@@ -44,7 +44,7 @@ class AccessTokenExchangeView(AccessTokenView):
         return self.access_token_response(edx_access_token)
 
 
-class SessionCookieExchangeView(APIView):
+class LoginWithAccessTokenView(APIView):
     """
     View for exchanging an access token for session cookies
     """
