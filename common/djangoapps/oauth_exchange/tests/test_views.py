@@ -122,10 +122,14 @@ class TestSessionCookieExchangeView(TestCase):
     Tests for SessionCookieExchangeView
     """
     def setUp(self):
+        super(TestSessionCookieExchangeView, self).setUp()
         self.user = UserFactory()
         self.oauth2_client = Client.objects.create(client_type=provider.constants.CONFIDENTIAL)
 
     def _verify_response(self, access_token, expected_status_code, expected_num_cookies):
+        """
+        Calls the SessionCookieExchange endpoint and verifies the response given the expected values.
+        """
         url = reverse("exchange_session_cookie")
         response = self.client.post(url, HTTP_AUTHORIZATION="Bearer {0}".format(access_token))
         self.assertEqual(response.status_code, expected_status_code)

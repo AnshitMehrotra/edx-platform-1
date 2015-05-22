@@ -4,8 +4,7 @@ Views to support third-party to first-party OAuth 2.0 access token exchange
 from django.conf import settings
 from django.contrib.auth import login
 import django.contrib.auth as auth
-from django.contrib.auth.models import User
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from provider import constants
