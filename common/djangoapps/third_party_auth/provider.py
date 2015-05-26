@@ -171,6 +171,7 @@ class FacebookOauth2(BaseProvider):
     def get_name(cls, provider_details):
         return provider_details.get('fullname')
 
+
 class AzureADOauth2(BaseProvider):
     """Provider for Microsoft Azure Active Directory's Oauth2 auth system."""
 
@@ -191,6 +192,7 @@ class AzureADOauth2(BaseProvider):
     @classmethod
     def get_name(cls, provider_details):
         return provider_details.get('fullname')
+
 
 class Registry(object):
     """Singleton registry of third-party auth providers.
