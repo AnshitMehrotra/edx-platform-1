@@ -7,7 +7,7 @@ from third_party_auth.tests.specs import base
 class AzureADOAuth2IntegrationTest(base.Oauth2IntegrationTest):
     """Integration tests for provider.AzureADOAuth2."""
 
-    PROVIDER_CLASS = provider.AzureADOAuth2
+    PROVIDER_CLASS = provider.AzureADOauth2
     PROVIDER_SETTINGS = {
         'SOCIAL_AUTH_AZUREAD_OAUTH2_KEY': 'azure_oauth2_key',
         'SOCIAL_AUTH_AZUREAD_OAUTH2_SECRET': 'azure_oauth2_secret',
