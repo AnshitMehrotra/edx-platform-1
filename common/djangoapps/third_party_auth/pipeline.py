@@ -56,7 +56,7 @@ rather than spreading them across two functions in the pipeline.
 
 See http://psa.matiasaguirre.net/docs/pipeline.html for more docs.
 """
-
+import pkg_resources
 import random
 import string  # pylint: disable-msg=deprecated-module
 from collections import OrderedDict
@@ -557,10 +557,14 @@ def set_logged_in_cookie(backend=None, user=None, request=None, auth_entry=None,
             # This ensures that we allow the user to continue to the next
             # pipeline step once he/she has the cookie set by this step.
 
-            # Old code
-            #has_cookie = student.helpers.is_logged_in_cookie_set(request)
+            try:
+                if not hasattr(request, 'COOKIES') \
+                        and pkg_resources.get_distribution("python-social-auth").version == '0.2.10-dev':
+                        return;
+            except Exception:
+                pass
 
-            has_cookie = True
+            has_cookie = student.helpers.is_logged_in_cookie_set(request)
 
             if not has_cookie:
                 try:
