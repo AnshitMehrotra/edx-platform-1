@@ -373,7 +373,7 @@ def account_settings_context(request):
         auth_states = pipeline.get_provider_user_states(user)
 
         context['auth']['providers'] = [{
-            'name': state.provider.NAME,  # The name of the provider e.g. Facebook
+            'name': state.provider.UINAME,  # The name of the provider e.g. Facebook
             'connected': state.has_account,  # Whether the user's edX account is connected with the provider.
             # If the user is not connected, they should be directed to this page to authenticate
             # with the particular provider.
