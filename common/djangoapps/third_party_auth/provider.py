@@ -176,7 +176,7 @@ class AzureADOauth2(BaseProvider):
     """Provider for Microsoft Azure Active Directory's Oauth2 auth system."""
 
     BACKEND_CLASS = azuread.AzureADOAuth2
-    ICON_CLASS = 'fa-windows'
+    ICON_CLASS = 'img-office365'
     NAME = 'AzureAD'
     UINAME = 'Office 365'
     SETTINGS = {
