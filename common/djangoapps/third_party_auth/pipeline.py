@@ -558,9 +558,14 @@ def set_logged_in_cookie(backend=None, user=None, request=None, auth_entry=None,
             # pipeline step once he/she has the cookie set by this step.
 
             try:
-                if not hasattr(request, 'COOKIES') \
-                        and pkg_resources.get_distribution("python-social-auth").version == '0.2.10-dev':
+                if not hasattr(request, 'COOKIES'):
+
+                    version = pkg_resources.get_distribution("python-social-auth").version
+                    version_parts = tuple([int(x) for x in version.split('.') if x.isdigit()])
+
+                    if float(str(version_parts[0]) + "." + str(version_parts[1])) >= 0.2:
                         return;
+
             except Exception:
                 pass
 
